@@ -4,21 +4,23 @@ body {
     background-color: #FCF8DD; /* Krem muda sebagai latar utama */
     color: #333;
     line-height: 1.6;
+    font-size: 16px; /* Saiz asas untuk skala responsif */
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 2rem;
 }
 
+/* Hero Section */
 .hero {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: #fff;
     text-align: center;
-    padding: 120px 20px;
+    padding: 8rem 1rem;
     position: relative;
 }
 
@@ -29,7 +31,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Overlay lebih gelap untuk kontras */
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay untuk kontras */
 }
 
 .hero-content {
@@ -38,33 +40,36 @@ body {
 }
 
 .hero h1 {
-    font-size: 3.8em;
+    font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     color: #FFD700; /* Emas terang untuk tajuk */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero p {
-    font-size: 1.6em;
-    margin-bottom: 35px;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
     color: #FCF8DD; /* Krem muda untuk subtajuk */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+/* Butang */
 .btn-primary {
     display: inline-block;
-    background-color: #D3AF37; /* Emas muda untuk butang utama */
+    background-color: #D3AF37; /* Emas muda */
     color: #fff;
-    padding: 14px 30px;
-    border-radius: 8px;
+    padding: 0.875rem 1.875rem;
+    border-radius: 0.5rem;
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
-    font-size: 1.1em;
-    margin: 8px;
+    font-size: 1rem;
+    margin: 0.5rem;
+    min-width: 120px; /* Saiz minimum untuk sentuhan */
+    touch-action: manipulation;
 }
 
 .btn-primary:hover {
@@ -74,75 +79,82 @@ body {
 
 .btn-secondary {
     display: inline-block;
-    background-color: #00809D; /* Biru cyan untuk butang sekunder */
+    background-color: #00809D; /* Biru cyan */
     color: #fff;
-    padding: 14px 30px;
-    border-radius: 8px;
+    padding: 0.875rem 1.875rem;
+    border-radius: 0.5rem;
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
-    font-size: 1.1em;
-    margin: 8px;
+    font-size: 1rem;
+    margin: 0.5rem;
+    min-width: 120px;
+    touch-action: manipulation;
 }
 
 .btn-secondary:hover {
-    background-color: #006678; /* Biru cyan lebih gelap pada hover */
+    background-color: #006678; /* Biru cyan lebih gelap */
     transform: translateY(-2px);
 }
 
+/* Menu Section */
 .menu-section {
-    padding: 50px 20px;
+    padding: 3rem 1rem;
     text-align: center;
     background-color: #fff;
-    border-radius: 12px;
-    margin: 20px;
+    border-radius: 0.75rem;
+    margin: 1.25rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .menu-section h2 {
-    font-size: 2.8em;
-    color: #00809D; /* Biru cyan untuk tajuk */
-    margin-bottom: 35px;
+    font-size: 2.5rem;
+    color: #00809D; /* Biru cyan */
+    margin-bottom: 2rem;
 }
 
 .menu-categories {
-    margin-bottom: 35px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .menu-category-btn {
-    background-color: #D3AF37; /* Emas muda untuk butang kategori */
+    background-color: #D3AF37; /* Emas muda */
     color: #fff;
-    padding: 12px 25px;
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 8px;
-    margin: 0 12px;
+    border-radius: 0.5rem;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.1rem;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    touch-action: manipulation;
 }
 
 .menu-category-btn:hover,
 .menu-category-btn.active {
-    background-color: #FFD700; /* Emas terang pada hover/aktif */
+    background-color: #FFD700; /* Emas terang */
     transform: translateY(-2px);
 }
 
 .menu-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
     max-width: 1100px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 3rem auto;
 }
 
 .menu-item {
-    background-color: #FCF8DD; /* Krem muda untuk kad menu */
-    border-radius: 12px;
+    background-color: #FCF8DD; /* Krem muda */
+    border-radius: 0.75rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 25px;
+    padding: 1.5rem;
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -156,30 +168,30 @@ body {
 
 .menu-item img {
     max-width: 100%;
-    height: 220px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    border-radius: 0.625rem;
+    margin-bottom: 1.25rem;
 }
 
 .menu-item h3 {
-    font-size: 1.6em;
-    color: #00809D; /* Biru cyan untuk nama item */
-    margin-bottom: 12px;
+    font-size: 1.5rem;
+    color: #00809D; /* Biru cyan */
+    margin-bottom: 0.75rem;
 }
 
 .menu-item p {
-    font-size: 1em;
+    font-size: 0.95rem;
     color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     flex-grow: 1;
 }
 
 .menu-item .price {
-    font-size: 1.4em;
+    font-size: 1.3rem;
     font-weight: 600;
-    color: #FFD700; /* Emas terang untuk harga */
-    margin-bottom: 20px;
+    color: #FFD700; /* Emas terang */
+    margin-bottom: 1.25rem;
     display: block;
 }
 
@@ -187,221 +199,233 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
 }
 
 .quantity-control button {
-    background-color: #D3AF37; /* Emas muda untuk butang kuantiti */
+    background-color: #D3AF37; /* Emas muda */
     color: #fff;
     border: none;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    font-size: 1.3em;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    touch-action: manipulation;
 }
 
 .quantity-control button:hover {
-    background-color: #FFD700; /* Emas terang pada hover */
+    background-color: #FFD700; /* Emas terang */
     transform: translateY(-2px);
 }
 
 .quantity-control input[type="number"] {
-    width: 60px;
+    width: 3.75rem;
     text-align: center;
-    border: 1px solid #00809D; /* Biru cyan untuk border input */
-    border-radius: 8px;
-    padding: 8px;
-    font-size: 1.1em;
+    border: 1px solid #00809D; /* Biru cyan */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
 }
 
+/* Order Summary */
 .order-summary {
-    background-color: #FCF8DD; /* Krem muda untuk ringkasan pesanan */
-    border-radius: 12px;
-    padding: 35px;
+    background-color: #FCF8DD; /* Krem muda */
+    border-radius: 0.75rem;
+    padding: 2rem;
     max-width: 550px;
-    margin: 50px auto;
+    margin: 3rem auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     text-align: left;
 }
 
 .order-summary h3 {
-    color: #00809D; /* Biru cyan untuk tajuk */
-    font-size: 2em;
-    margin-bottom: 25px;
+    color: #00809D; /* Biru cyan */
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
     text-align: center;
 }
 
 #cart-items p {
-    margin: 12px 0;
-    font-size: 1.2em;
+    margin: 0.75rem 0;
+    font-size: 1.1rem;
     color: #666;
 }
 
 #cart-items div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
 }
 
 #cart-items .item-name {
     font-weight: 600;
-    color: #00809D; /* Biru cyan untuk nama item */
+    color: #00809D; /* Biru cyan */
 }
 
 #total-price {
-    font-size: 1.6em;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: #FFD700; /* Emas terang untuk jumlah */
+    color: #FFD700; /* Emas terang */
     display: block;
-    margin-top: 25px;
+    margin-top: 1.5rem;
     text-align: right;
 }
 
 .order-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-top: 25px;
+    gap: 1rem;
+    margin-top: 1.5rem;
     text-align: left;
 }
 
 .order-form label {
     font-weight: 600;
-    color: #00809D; /* Biru cyan untuk label */
+    color: #00809D; /* Biru cyan */
 }
 
 .order-form input {
-    padding: 10px 15px;
-    border: 1px solid #00809D; /* Biru cyan untuk border input */
-    border-radius: 8px;
-    font-size: 1.1em;
+    padding: 0.625rem 0.9375rem;
+    border: 1px solid #00809D; /* Biru cyan */
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .order-form input.error {
-    border-color: #d32f2f; /* Merah untuk input ralat */
+    border-color: #d32f2f; /* Merah untuk ralat */
 }
 
 .order-form .error-message {
     color: #d32f2f;
-    font-size: 0.95em;
-    margin-top: 6px;
+    font-size: 0.9rem;
+    margin-top: 0.375rem;
 }
 
+/* Payment Section */
 .qr-payment {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 1.5rem;
 }
 
 .qr-payment img {
-    max-width: 220px;
-    margin: 15px 0;
-    border-radius: 10px;
-    border: 2px solid #D3AF37; /* Emas muda untuk border QR */
+    max-width: 200px;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 0.625rem;
+    border: 2px solid #D3AF37; /* Emas muda */
 }
 
 .payment-section {
-    padding: 50px 20px;
+    padding: 3rem 1rem;
     text-align: center;
-    background-color: #FCF8DD; /* Krem muda untuk bahagian pembayaran */
-    border-radius: 12px;
-    margin: 20px;
+    background-color: #FCF8DD; /* Krem muda */
+    border-radius: 0.75rem;
+    margin: 1.25rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .payment-section h2 {
-    font-size: 2.8em;
-    color: #00809D; /* Biru cyan untuk tajuk */
-    margin-bottom: 35px;
+    font-size: 2.5rem;
+    color: #00809D; /* Biru cyan */
+    margin-bottom: 2rem;
 }
 
 .payment-options {
-    margin-bottom: 35px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .payment-option-btn {
-    background-color: #00809D; /* Biru cyan untuk butang pilihan pembayaran */
-    margin: 0 15px;
+    background-color: #00809D; /* Biru cyan */
+    margin: 0 0.9375rem;
 }
 
 .payment-option-btn:hover {
-    background-color: #006678; /* Biru cyan lebih gelap pada hover */
+    background-color: #006678; /* Biru cyan lebih gelap */
 }
 
 #cash-payment-form, #online-payment-form {
     max-width: 650px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 35px;
-    border-radius: 12px;
+    padding: 2rem;
+    border-radius: 0.75rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 #cash-payment-form h3, #online-payment-form h3 {
-    color: #00809D; /* Biru cyan untuk tajuk */
-    margin-bottom: 30px;
+    color: #00809D; /* Biru cyan */
+    margin-bottom: 1.5rem;
     text-align: center;
+    font-size: 1.8rem;
 }
 
 #cash-payment-form .btn-primary, #online-payment-form .btn-primary,
 #cash-payment-form .btn-secondary, #online-payment-form .btn-secondary {
     width: 100%;
-    margin-top: 12px;
+    margin-top: 0.75rem;
 }
 
+/* Receipt Styling */
 #receipt-content, #receipt-content-cash {
     background-color: #fff;
-    border: 2px dashed #D3AF37; /* Emas muda untuk border resit */
-    padding: 25px;
-    margin: 25px 0;
-    border-radius: 10px;
+    border: 2px dashed #D3AF37; /* Emas muda */
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0.625rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
 #receipt-content p, #receipt-content-cash p {
-    margin: 6px 0;
-    font-size: 1.2em;
+    margin: 0.375rem 0;
+    font-size: 1.1rem;
 }
 
 #receipt-content strong, #receipt-content-cash strong {
-    color: #00809D; /* Biru cyan untuk teks penting */
+    color: #00809D; /* Biru cyan */
 }
 
 #receipt-content .receipt-header, #receipt-content-cash .receipt-header,
 #receipt-content .receipt-total, #receipt-content-cash .receipt-total {
-    border-bottom: 1px solid #D3AF37; /* Emas muda untuk garisan */
-    padding-bottom: 12px;
-    margin-bottom: 12px;
+    border-bottom: 1px solid #D3AF37; /* Emas muda */
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 #receipt-content .receipt-total, #receipt-content-cash .receipt-total {
-    border-top: 1px solid #D3AF37; /* Emas muda untuk garisan */
-    padding-top: 12px;
-    margin-top: 12px;
-    font-size: 1.4em;
+    border-top: 1px solid #D3AF37; /* Emas muda */
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+    font-size: 1.3rem;
     font-weight: 600;
-    color: #FFD700; /* Emas terang untuk jumlah */
+    color: #FFD700; /* Emas terang */
     text-align: right;
 }
 
 .receipt-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 12px 0;
+    margin: 0.75rem 0;
 }
 
 .receipt-table th,
 .receipt-table td {
-    padding: 10px;
-    border-bottom: 1px solid #D3AF37; /* Emas muda untuk garisan tabel */
+    padding: 0.625rem;
+    border-bottom: 1px solid #D3AF37; /* Emas muda */
     text-align: left;
 }
 
 .receipt-table th {
-    color: #00809D; /* Biru cyan untuk tajuk tabel */
+    color: #00809D; /* Biru cyan */
     font-weight: 600;
 }
 
@@ -412,37 +436,254 @@ body {
 
 .receipt-footer {
     text-align: center;
-    margin-top: 25px;
-    font-size: 1em;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
     color: #666;
 }
 
+/* Footer */
 footer {
-    background-color: #00809D; /* Biru cyan untuk footer */
-    color: #FCF8DD; /* Krem muda untuk teks footer */
+    background-color: #00809D; /* Biru cyan */
+    color: #FCF8DD; /* Krem muda */
     text-align: center;
-    padding: 25px;
-    font-size: 1em;
+    padding: 1.5rem;
+    font-size: 0.95rem;
 }
 
+/* Media Queries untuk Responsif */
+
+/* Skrin Kecil (Mudah Alih, <480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Kurangkan saiz fon asas */
+    }
+
+    .hero {
+        padding: 4rem 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        min-width: 100px;
+    }
+
+    .menu-section {
+        padding: 1.5rem 0.5rem;
+        margin: 0.5rem;
+    }
+
+    .menu-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .menu-items {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .menu-item img {
+        height: 150px;
+    }
+
+    .menu-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .menu-item p {
+        font-size: 0.85rem;
+    }
+
+    .menu-item .price {
+        font-size: 1.1rem;
+    }
+
+    .quantity-control button {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    .quantity-control input[type="number"] {
+        width: 3rem;
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .order-summary {
+        padding: 1.5rem;
+        margin: 1.5rem 0.5rem;
+    }
+
+    .order-summary h3 {
+        font-size: 1.5rem;
+    }
+
+    .order-form {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .order-form input {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .payment-section {
+        padding: 1.5rem 0.5rem;
+        margin: 0.5rem;
+    }
+
+    .payment-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .payment-options {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #cash-payment-form, #online-payment-form {
+        padding: 1.5rem;
+    }
+
+    #cash-payment-form h3, #online-payment-form h3 {
+        font-size: 1.5rem;
+    }
+
+    .qr-payment img {
+        max-width: 150px;
+    }
+
+    #receipt-content p, #receipt-content-cash p {
+        font-size: 0.95rem;
+    }
+
+    #receipt-content .receipt-total, #receipt-content-cash .receipt-total {
+        font-size: 1.1rem;
+    }
+
+    .receipt-table th, .receipt-table td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Tablet (768px - 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .hero {
+        padding: 6rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+    }
+
+    .menu-section {
+        padding: 2rem 1rem;
+    }
+
+    .menu-section h2 {
+        font-size: 2rem;
+    }
+
+    .menu-items {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .menu-item img {
+        height: 180px;
+    }
+
+    .menu-item h3 {
+        font-size: 1.4rem;
+    }
+
+    .menu-item p {
+        font-size: 0.9rem;
+    }
+
+    .order-summary {
+        padding: 1.75rem;
+    }
+
+    .order-summary h3 {
+        font-size: 1.6rem;
+    }
+
+    .order-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .payment-section {
+        padding: 2rem 1rem;
+    }
+
+    .payment-section h2 {
+        font-size: 2rem;
+    }
+
+    .payment-options {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #cash-payment-form, #online-payment-form {
+        padding: 1.75rem;
+    }
+
+    #cash-payment-form h3, #online-payment-form h3 {
+        font-size: 1.6rem;
+    }
+
+    .qr-payment img {
+        max-width: 180px;
+    }
+}
+
+/* Skrin Kecil (Mudah Alih, <768px, tambahan untuk kebolehgunaan) */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 2.8em;
+        font-size: 2.5rem;
     }
+
     .hero p {
-        font-size: 1.3em;
+        font-size: 1.2rem;
     }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        margin: 0.5rem auto;
+    }
+
     .menu-items {
         grid-template-columns: 1fr;
     }
-    .payment-option-btn {
-        display: block;
-        margin: 15px auto;
-    }
+
     .order-form {
         grid-template-columns: 1fr;
     }
-    .btn-primary, .btn-secondary {
-        width: 100%;
+
+    .payment-options {
+        flex-direction: column;
     }
 }
