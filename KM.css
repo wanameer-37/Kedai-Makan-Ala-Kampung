@@ -1,0 +1,448 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #FCF8DD; /* Krem muda sebagai latar utama */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay lebih gelap untuk kontras */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.8em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #FFD700; /* Emas terang untuk tajuk */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+    font-size: 1.6em;
+    margin-bottom: 35px;
+    color: #FCF8DD; /* Krem muda untuk subtajuk */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #D3AF37; /* Emas muda untuk butang utama */
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #FFD700; /* Emas terang pada hover */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: #00809D; /* Biru cyan untuk butang sekunder */
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin: 8px;
+}
+
+.btn-secondary:hover {
+    background-color: #006678; /* Biru cyan lebih gelap pada hover */
+    transform: translateY(-2px);
+}
+
+.menu-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.menu-section h2 {
+    font-size: 2.8em;
+    color: #00809D; /* Biru cyan untuk tajuk */
+    margin-bottom: 35px;
+}
+
+.menu-categories {
+    margin-bottom: 35px;
+}
+
+.menu-category-btn {
+    background-color: #D3AF37; /* Emas muda untuk butang kategori */
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    margin: 0 12px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu-category-btn:hover,
+.menu-category-btn.active {
+    background-color: #FFD700; /* Emas terang pada hover/aktif */
+    transform: translateY(-2px);
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+}
+
+.menu-item {
+    background-color: #FCF8DD; /* Krem muda untuk kad menu */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-item img {
+    max-width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.menu-item h3 {
+    font-size: 1.6em;
+    color: #00809D; /* Biru cyan untuk nama item */
+    margin-bottom: 12px;
+}
+
+.menu-item p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.menu-item .price {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #FFD700; /* Emas terang untuk harga */
+    margin-bottom: 20px;
+    display: block;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.quantity-control button {
+    background-color: #D3AF37; /* Emas muda untuk butang kuantiti */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.quantity-control button:hover {
+    background-color: #FFD700; /* Emas terang pada hover */
+    transform: translateY(-2px);
+}
+
+.quantity-control input[type="number"] {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #00809D; /* Biru cyan untuk border input */
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1.1em;
+}
+
+.order-summary {
+    background-color: #FCF8DD; /* Krem muda untuk ringkasan pesanan */
+    border-radius: 12px;
+    padding: 35px;
+    max-width: 550px;
+    margin: 50px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.order-summary h3 {
+    color: #00809D; /* Biru cyan untuk tajuk */
+    font-size: 2em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+#cart-items p {
+    margin: 12px 0;
+    font-size: 1.2em;
+    color: #666;
+}
+
+#cart-items div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+#cart-items .item-name {
+    font-weight: 600;
+    color: #00809D; /* Biru cyan untuk nama item */
+}
+
+#total-price {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #FFD700; /* Emas terang untuk jumlah */
+    display: block;
+    margin-top: 25px;
+    text-align: right;
+}
+
+.order-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+    text-align: left;
+}
+
+.order-form label {
+    font-weight: 600;
+    color: #00809D; /* Biru cyan untuk label */
+}
+
+.order-form input {
+    padding: 10px 15px;
+    border: 1px solid #00809D; /* Biru cyan untuk border input */
+    border-radius: 8px;
+    font-size: 1.1em;
+}
+
+.order-form input.error {
+    border-color: #d32f2f; /* Merah untuk input ralat */
+}
+
+.order-form .error-message {
+    color: #d32f2f;
+    font-size: 0.95em;
+    margin-top: 6px;
+}
+
+.qr-payment {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.qr-payment img {
+    max-width: 220px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border: 2px solid #D3AF37; /* Emas muda untuk border QR */
+}
+
+.payment-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #FCF8DD; /* Krem muda untuk bahagian pembayaran */
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.payment-section h2 {
+    font-size: 2.8em;
+    color: #00809D; /* Biru cyan untuk tajuk */
+    margin-bottom: 35px;
+}
+
+.payment-options {
+    margin-bottom: 35px;
+}
+
+.payment-option-btn {
+    background-color: #00809D; /* Biru cyan untuk butang pilihan pembayaran */
+    margin: 0 15px;
+}
+
+.payment-option-btn:hover {
+    background-color: #006678; /* Biru cyan lebih gelap pada hover */
+}
+
+#cash-payment-form, #online-payment-form {
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#cash-payment-form h3, #online-payment-form h3 {
+    color: #00809D; /* Biru cyan untuk tajuk */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#cash-payment-form .btn-primary, #online-payment-form .btn-primary,
+#cash-payment-form .btn-secondary, #online-payment-form .btn-secondary {
+    width: 100%;
+    margin-top: 12px;
+}
+
+#receipt-content, #receipt-content-cash {
+    background-color: #fff;
+    border: 2px dashed #D3AF37; /* Emas muda untuk border resit */
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+#receipt-content p, #receipt-content-cash p {
+    margin: 6px 0;
+    font-size: 1.2em;
+}
+
+#receipt-content strong, #receipt-content-cash strong {
+    color: #00809D; /* Biru cyan untuk teks penting */
+}
+
+#receipt-content .receipt-header, #receipt-content-cash .receipt-header,
+#receipt-content .receipt-total, #receipt-content-cash .receipt-total {
+    border-bottom: 1px solid #D3AF37; /* Emas muda untuk garisan */
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+#receipt-content .receipt-total, #receipt-content-cash .receipt-total {
+    border-top: 1px solid #D3AF37; /* Emas muda untuk garisan */
+    padding-top: 12px;
+    margin-top: 12px;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #FFD700; /* Emas terang untuk jumlah */
+    text-align: right;
+}
+
+.receipt-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+}
+
+.receipt-table th,
+.receipt-table td {
+    padding: 10px;
+    border-bottom: 1px solid #D3AF37; /* Emas muda untuk garisan tabel */
+    text-align: left;
+}
+
+.receipt-table th {
+    color: #00809D; /* Biru cyan untuk tajuk tabel */
+    font-weight: 600;
+}
+
+.receipt-table th:last-child,
+.receipt-table td:last-child {
+    text-align: right;
+}
+
+.receipt-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1em;
+    color: #666;
+}
+
+footer {
+    background-color: #00809D; /* Biru cyan untuk footer */
+    color: #FCF8DD; /* Krem muda untuk teks footer */
+    text-align: center;
+    padding: 25px;
+    font-size: 1em;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.8em;
+    }
+    .hero p {
+        font-size: 1.3em;
+    }
+    .menu-items {
+        grid-template-columns: 1fr;
+    }
+    .payment-option-btn {
+        display: block;
+        margin: 15px auto;
+    }
+    .order-form {
+        grid-template-columns: 1fr;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+}

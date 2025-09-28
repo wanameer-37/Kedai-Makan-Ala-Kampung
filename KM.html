@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangat & Menyelerakan - Sup Panas, Hati Tenang</title>
+    <link rel="stylesheet" href="KM.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero" style="background-image: url('images/banner2.jpg');">
+        <div class="hero-content">
+            <h1>Hangat & Menyelerakan</h1>
+            <p>Sup Panas, Hati Tenang</p>
+            <a href="#menu" class="btn btn-primary">Lihat Menu & Pesan</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="menu" class="menu-section">
+            <h2>Menu Kami</h2>
+            <div class="menu-categories">
+                <button class="menu-category-btn active" data-category="makanan">Makanan</button>
+                <button class="menu-category-btn" data-category="minuman">Minuman</button>
+            </div>
+            <div class="menu-items">
+                <!-- Makanan Items -->
+                <div class="menu-item makanan">
+                    <img src="images/sup-perut.jpg" alt="Sup Perut">
+                    <h3>Sup Perut</h3>
+                    <p>Sup perut lembu yang pekat dan beraroma dengan sentuhan perahan limau.</p>
+                    <span class="price">RM 8.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="makanan-1">-</button>
+                        <input type="number" value="0" min="0" data-id="makanan-1" data-name="Sup Perut" data-price="8.00">
+                        <button class="increment" data-id="makanan-1">+</button>
+                    </div>
+                </div>
+                <div class="menu-item makanan">
+                    <img src="images/air-asam-dombok.JPG" alt="Air Asam Domba">
+                    <h3>Air Asam Domba</h3>
+                    <p>Perut lembu yang dimasak dengan rempah asam pedas yang membangkitkan selera.</p>
+                    <span class="price">RM 8.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="makanan-2">-</button>
+                        <input type="number" value="0" min="0" data-id="makanan-2" data-name="Air Asam Domba" data-price="8.00">
+                        <button class="increment" data-id="makanan-2">+</button>
+                    </div>
+                </div>
+                <div class="menu-item makanan">
+                    <img src="images/sup-tulang.jpg" alt="Sup Tulang">
+                    <h3>Sup Tulang</h3>
+                    <p>Sup tulang lembu yang direbus lama dengan rempah ratus terpilih.</p>
+                    <span class="price">RM 10.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="makanan-3">-</button>
+                        <input type="number" value="0" min="0" data-id="makanan-3" data-name="Sup Tulang" data-price="10.00">
+                        <button class="increment" data-id="makanan-3">+</button>
+                    </div>
+                </div>
+                <div class="menu-item makanan">
+                    <img src="images/nasi-kukus.jpg" alt="Nasi Kukus Ayam Bakar">
+                    <h3>Nasi Kukus Ayam Bakar</h3>
+                    <p>Nasi bersama ayam bakar berempah dengan sos istimewa.</p>
+                    <span class="price">RM 10.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="makanan-4">-</button>
+                        <input type="number" value="0" min="0" data-id="makanan-4" data-name="Nasi Kukus Ayam Bakar" data-price="10.00">
+                        <button class="increment" data-id="makanan-4">+</button>
+                    </div>
+                </div>
+                <div class="menu-item makanan">
+                    <img src="images/singgang-daging.jpg" alt="Singgang Daging">
+                    <h3>Singgang Daging</h3>
+                    <p>Singgang Daging klasik yang kaya rasa dan menyelerakan.</p>
+                    <span class="price">RM 7.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="makanan-5">-</button>
+                        <input type="number" value="0" min="0" data-id="makanan-5" data-name="Singgang Daging" data-price="7.00">
+                        <button class="increment" data-id="makanan-5">+</button>
+                    </div>
+                </div>
+                <div class="menu-item makanan">
+                    <img src="images/nasi-air.jpg" alt="Bubur Ayam">
+                    <h3>Bubur Ayam</h3>
+                    <p>Bubur ayam panas dengan hirisan ayam, daun sup dan bawang goreng.</p>
+                    <span class="price">RM 7.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="makanan-6">-</button>
+                        <input type="number" value="0" min="0" data-id="makanan-6" data-name="Bubur Ayam" data-price="7.00">
+                        <button class="increment" data-id="makanan-6">+</button>
+                    </div>
+                </div>
+                <div class="menu-item makanan">
+                    <img src="images/sup-ayam.jpg" alt="Sup Kaki Ayam">
+                    <h3>Sup Kaki Ayam</h3>
+                    <p>Sup kaki ayam pedas beraroma, sesuai untuk penggemar pedas.</p>
+                    <span class="price">RM 9.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="makanan-7">-</button>
+                        <input type="number" value="0" min="0" data-id="makanan-7" data-name="Sup Kaki Ayam" data-price="9.00">
+                        <button class="increment" data-id="makanan-7">+</button>
+                    </div>
+                </div>
+                <div class="menu-item makanan">
+                    <img src="images/mee-goreng.jpg" alt="Mee Goreng Udang">
+                    <h3>Mee Goreng Udang</h3>
+                    <p>Mee goreng dengan udang segar dan sayur-sayuran.</p>
+                    <span class="price">RM 7.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="makanan-8">-</button>
+                        <input type="number" value="0" min="0" data-id="makanan-8" data-name="Mee Goreng Udang" data-price="7.00">
+                        <button class="increment" data-id="makanan-8">+</button>
+                    </div>
+                </div>
+                <div class="menu-item makanan">
+                    <img src="images/sup-kaki-perut.jpg" alt="Sup Kaki Perut">
+                    <h3>Sup Kaki Perut</h3>
+                    <p>Sup Kaki Perut yang kaya rasa dengan rempah ratus istimewa.</p>
+                    <span class="price">RM 20.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="makanan-9">-</button>
+                        <input type="number" value="0" min="0" data-id="makanan-9" data-name="Sup Kaki Perut" data-price="20.00">
+                        <button class="increment" data-id="makanan-9">+</button>
+                    </div>
+                </div>
+
+                <!-- Minuman Items -->
+                <div class="menu-item minuman" style="display: none;">
+                    <img src="images/air-kelapa.jpg" alt="Air Kelapa Muda">
+                    <h3>Air Kelapa Muda</h3>
+                    <p>Air kelapa muda asli yang menyegarkan.</p>
+                    <span class="price">RM 3.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="minuman-1">-</button>
+                        <input type="number" value="0" min="0" data-id="minuman-1" data-name="Air Kelapa Muda" data-price="3.00">
+                        <button class="increment" data-id="minuman-1">+</button>
+                    </div>
+                </div>
+                <div class="menu-item minuman" style="display: none;">
+                    <img src="images/abj.jpg" alt="Ais Batu Jagung">
+                    <h3>Ais Batu Jagung</h3>
+                    <p>Pencuci mulut sejuk dengan pelbagai topping.</p>
+                    <span class="price">RM 5.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="minuman-2">-</button>
+                        <input type="number" value="0" min="0" data-id="minuman-2" data-name="Ais Batu Jagung" data-price="5.00">
+                        <button class="increment" data-id="minuman-2">+</button>
+                    </div>
+                </div>
+                <div class="menu-item minuman" style="display: none;">
+                    <img src="images/coconate-shake.jpg" alt="Coconut Shake">
+                    <h3>Coconut Shake</h3>
+                    <p>Minuman kelapa yang diblender bersama aiskrim.</p>
+                    <span class="price">RM 4.00</span>
+                    <div class="quantity-control">
+                        <button class="decrement" data-id="minuman-3">-</button>
+                        <input type="number" value="0" min="0" data-id="minuman-3" data-name="Coconut Shake" data-price="4.00">
+                        <button class="increment" data-id="minuman-3">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="order-summary">
+                <h3>Ringkasan Pesanan</h3>
+                <div id="cart-items">
+                    <p>Tiada item dalam troli.</p>
+                </div>
+                <p>Jumlah Keseluruhan: <span id="total-price">RM 0.00</span></p>
+                <div class="order-form">
+                    <label for="customer-name">Nama Pelanggan:</label>
+                    <input type="text" id="customer-name" placeholder="Cth: Ali">
+                    <label for="table-number">No. Meja:</label>
+                    <input type="text" id="table-number" placeholder="Cth: 5">
+                </div>
+                <button class="btn btn-primary" id="checkout-btn">Teruskan Pembayaran</button>
+            </div>
+        </section>
+
+        <section id="payment-section" class="payment-section" style="display: none;">
+            <h2>Pilih Kaedah Pembayaran</h2>
+            <div class="payment-options">
+                <button class="btn btn-secondary" id="cash-payment-btn">Tunai</button>
+                <button class="btn btn-secondary" id="online-payment-btn">Pembayaran Online</button>
+            </div>
+
+            <div id="cash-payment-form" style="display: none;">
+                <h3>Pembayaran Tunai</h3>
+                <div id="receipt-content-cash" style="margin-top: 20px;">
+                    <!-- Resit akan dijana di sini untuk pembayaran tunai -->
+                </div>
+                <button class="btn btn-primary" id="download-receipt-btn-cash">Muat Turun Resit (PDF)</button>
+                <button class="btn btn-secondary" id="add-order-btn-cash">Tambah Order</button>
+                <button class="btn btn-secondary" id="new-order-btn">Pesanan Baru</button>
+            </div>
+
+            <div id="online-payment-form" style="display: none;">
+                <h3>Pembayaran Online</h3>
+                <div class="qr-payment">
+                    <p>Sila imbas kod QR di bawah untuk pembayaran:</p>
+                    <img src="images/qr.png" alt="QR Code Pembayaran" id="qr-image">
+                    <button class="btn btn-primary" id="download-qr-btn">Muat Turun Kod QR</button>
+                </div>
+                <div id="receipt-content" style="margin-top: 20px;">
+                    <!-- Resit akan dijana di sini untuk pembayaran online -->
+                </div>
+                <button class="btn btn-primary" id="download-receipt-btn">Muat Turun Resit (PDF)</button>
+                <button class="btn btn-secondary" id="add-order-btn-online">Tambah Order</button>
+                <button class="btn btn-secondary" id="new-order-btn-online">Pesanan Baru</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Hangat & Menyelerakan. Hak Cipta Terpelihara.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="KM.js"></script>
+</body>
+</html>
