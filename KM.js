@@ -24,11 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadQrBtn = document.getElementById('download-qr-btn');
     const qrImage = document.getElementById('qr-image');
     const menuCategoryBtns = document.querySelectorAll('.menu-category-btn');
+    const dineInBtn = document.getElementById('dine-in');
+    const takeAwayBtn = document.getElementById('take-away');
+    const tableInput = document.getElementById('table-input');
+    const orderTypeDiv = document.getElementById('order-type');
+    const typeDisplay = document.getElementById('type-display');
+    const receiptNumSpan = document.getElementById('receipt-num');
+    const heroMenuBtn = document.getElementById('hero-menu-btn');
 
     let cart = [];
     let currentTableNumber = '';
     let currentCustomerName = '';
     let isCashPayment = false;
+    let orderType = 'Dine In'; // Default to Dine In
+    let receiptNumber = null;
 
     // Toggle menu categories
     menuCategoryBtns.forEach(button => {
@@ -45,6 +54,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+    });
+
+    // Toggle Dine In / Take Away
+    dineInBtn.addEventListener('click', () => {
+        dineInBtn.classList.add('active');
+        takeAwayBtn.classList.remove('active');
+        orderType = 'Dine In';
+        tableInput.style.display = 'block';
+        orderTypeDiv.style.display = 'none';
+        receiptNumSpan.textContent = '';
+        typeDisplay.textContent = '';
+        receiptNumber = null;
+    });
+
+    takeAwayBtn.addEventListener('click', () => {
+        takeAwayBtn.classList.add('active');
+        dineInBtn.classList.remove('active');
+        orderType = 'Take Away';
+        tableInput.style.display = 'none';
+        orderTypeDiv.style.display = 'block';
+        receiptNumber = Math.floor(Math.random() * 9000) + 1000; // Random 4-digit number
+        typeDisplay.textContent = orderType;
+        receiptNumSpan.textContent = receiptNumber;
+    });
+
+    // Hero menu button functionality
+    heroMenuBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('menu').style.display = 'block';
+        paymentSection.style.display = 'none';
+        cashPaymentForm.style.display = 'none';
+        onlinePaymentForm.style.display = 'none';
+        receiptContentCash.innerHTML = '';
+        receiptContentOnline.innerHTML = '';
+        cashPaymentBtn.classList.remove('active');
+        onlinePaymentBtn.classList.remove('active');
+        window.scrollTo({ top: document.getElementById('menu').offsetTop, behavior: 'smooth' });
     });
 
     // Function to update the cart display and total price
@@ -116,10 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Input validation for customer name and table number
+    // Input validation for customer name
     function validateInputs() {
         const nameRegex = /^[A-Za-z\s-]+$/;
-        const tableRegex = /^[1-9]\d*$/;
         let isValid = true;
 
         // Validate customer name
@@ -139,23 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
             customerNameError.style.display = 'none';
         }
 
-        // Validate table number
-        const tableNumberError = document.getElementById('table-number-error') || document.createElement('div');
-        tableNumberError.id = 'table-number-error';
-        tableNumberError.className = 'error-message';
-        tableNumberError.style.display = 'none';
-        tableNumberInput.parentElement.appendChild(tableNumberError);
-
-        if (!tableRegex.test(tableNumberInput.value.trim())) {
-            tableNumberInput.classList.add('error');
-            tableNumberError.textContent = 'No. Meja hanya boleh mengandungi nombor positif.';
-            tableNumberError.style.display = 'block';
-            isValid = false;
-        } else {
-            tableNumberInput.classList.remove('error');
-            tableNumberError.style.display = 'none';
-        }
-
         return isValid;
     }
 
@@ -164,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Checkout button click
     checkoutBtn.addEventListener('click', () => {
-        currentTableNumber = tableNumberInput.value.trim();
         currentCustomerName = customerNameInput.value.trim();
 
         if (cart.length === 0) {
@@ -176,6 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        currentTableNumber = orderType === 'Dine In' ? tableNumberInput.value.trim() : receiptNumber.toString();
+
         document.getElementById('menu').style.display = 'none';
         paymentSection.style.display = 'block';
     });
@@ -183,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Payment options
     cashPaymentBtn.addEventListener('click', () => {
         isCashPayment = true;
-        generateReceipt(currentTableNumber, currentCustomerName, cart, totalPriceSpan.textContent, receiptContentCash);
+        generateReceipt(currentCustomerName, cart, totalPriceSpan.textContent, receiptContentCash, orderType, currentTableNumber);
         paymentSection.style.display = 'block';
         cashPaymentForm.style.display = 'block';
         onlinePaymentForm.style.display = 'none';
@@ -193,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     onlinePaymentBtn.addEventListener('click', () => {
         isCashPayment = false;
-        generateReceipt(currentTableNumber, currentCustomerName, cart, totalPriceSpan.textContent, receiptContentOnline);
+        generateReceipt(currentCustomerName, cart, totalPriceSpan.textContent, receiptContentOnline, orderType, currentTableNumber);
         paymentSection.style.display = 'block';
         onlinePaymentForm.style.display = 'block';
         cashPaymentForm.style.display = 'none';
@@ -212,15 +241,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Generate receipt function for display
-    function generateReceipt(tableNo, customerName, orderItems, totalAmount, receiptContainer) {
+    function generateReceipt(customerName, orderItems, totalAmount, receiptContainer, orderType, numberField) {
         let receiptHtml = `
             <div class="receipt-header">
                 <h3>Resit Pesanan</h3>
-                <p><strong>Kedai:</strong> Hangat & Menyelerakan</p>
+                <p><strong>Kedai:</strong> KEDAI MEE CELUP SEMBUR</p>
                 <p><strong>Nama Pelanggan:</strong> ${customerName}</p>
                 <p><strong>Tarikh:</strong> ${new Date().toLocaleDateString('ms-MY')}</p>
                 <p><strong>Masa:</strong> ${new Date().toLocaleTimeString('ms-MY')}</p>
-                <p><strong>No. Meja:</strong> ${tableNo}</p>
+                <p><strong>Jenis Order:</strong> ${orderType}</p>
+                <p><strong>${orderType === 'Dine In' ? 'No. Meja:' : 'No. Resit:'}</strong> ${numberField}</p>
                 <hr>
             </div>
             <div class="receipt-body">
@@ -256,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Generate LaTeX content for PDF (server-side rendering option)
-    function generateLatexContent(tableNo, customerName, orderItems, totalAmount) {
+    function generateLatexContent(customerName, orderItems, totalAmount, orderType, numberField) {
         let latexContent = `
 \\documentclass[a4paper,12pt]{article}
 \\usepackage[utf8]{inputenc}
@@ -272,11 +302,12 @@ document.addEventListener('DOMContentLoaded', () => {
     \\textbf{\\large Resit Pesanan}\\\\
     \\vspace{0.5cm}
     \\begin{tabular}{ll}
-        \\textbf{Kedai:} & Hangat \\& Menyelerakan \\\\
+        \\textbf{Kedai:} & KEDAI MEE CELUP SEMBUR \\\\
         \\textbf{Nama Pelanggan:} & ${customerName.replace(/&/g, '\\&')} \\\\
         \\textbf{Tarikh:} & ${new Date().toLocaleDateString('ms-MY')} \\\\
         \\textbf{Masa:} & ${new Date().toLocaleTimeString('ms-MY')} \\\\
-        \\textbf{No. Meja:} & ${tableNo.replace(/&/g, '\\&')} \\\\
+        \\textbf{Jenis Order:} & ${orderType} \\\\
+        \\textbf{${orderType === 'Dine In' ? 'No. Meja:' : 'No. Resit:'}} & ${numberField} \\\\
     \\end{tabular}
     \\vspace{0.5cm}
     \\hrule
@@ -314,30 +345,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const doc = new jsPDF();
         // Header
         doc.setFontSize(18);
-        doc.setTextColor(0, 128, 157); // Biru cyan (#00809D) untuk header
+        doc.setTextColor(0, 128, 157); // Biru cyan (#00809D)
         doc.text('Resit Pesanan', 105, 20, { align: 'center' });
         doc.setLineWidth(0.5);
-        doc.setDrawColor(211, 175, 55); // Emas muda (#D3AF37) untuk garisan
+        doc.setDrawColor(211, 175, 55); // Emas muda (#D3AF37)
         doc.line(20, 25, 190, 25);
 
         // Restaurant and customer details
         doc.setFontSize(12);
         doc.setTextColor(0, 0, 0);
-        doc.text('Kedai: Hangat & Menyelerakan', 20, 35);
+        doc.text('Kedai: KEDAI MEE CELUP SEMBUR', 20, 35);
         doc.text(`Nama Pelanggan: ${currentCustomerName}`, 20, 45);
         doc.text(`Tarikh: ${new Date().toLocaleDateString('ms-MY')}`, 20, 55);
         doc.text(`Masa: ${new Date().toLocaleTimeString('ms-MY')}`, 20, 65);
-        doc.text(`No. Meja: ${currentTableNumber}`, 20, 75);
-        doc.line(20, 80, 190, 80);
+        doc.text(`Jenis Order: ${orderType}`, 20, 75);
+        doc.text(`${orderType === 'Dine In' ? 'No. Meja:' : 'No. Resit:'} ${currentTableNumber}`, 20, 85);
+        doc.line(20, 90, 190, 90);
 
         // Order table
         doc.autoTable({
-            startY: 85,
+            startY: 95,
             head: [['Item', 'Kuantiti', 'Harga (RM)']],
             body: cart.map(item => [item.name, item.quantity, item.total.toFixed(2)]),
             theme: 'grid',
             styles: { fontSize: 10, cellPadding: 4, textColor: [0, 0, 0] },
-            headStyles: { fillColor: [0, 128, 157], textColor: [255, 255, 255], fontStyle: 'bold' }, // Biru cyan untuk header tabel
+            headStyles: { fillColor: [0, 128, 157], textColor: [255, 255, 255], fontStyle: 'bold' },
             columnStyles: {
                 0: { cellWidth: 100 },
                 1: { cellWidth: 30, halign: 'right' },
@@ -349,9 +381,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Total and footer
         const finalY = doc.lastAutoTable.finalY + 10;
         doc.setFontSize(12);
-        doc.setTextColor(255, 215, 0); // Emas terang (#FFD700) untuk jumlah
+        doc.setTextColor(255, 215, 0); // Emas terang (#FFD700)
         doc.text(`Jumlah Pembayaran: ${totalPriceSpan.textContent}`, 20, finalY);
-        doc.setDrawColor(211, 175, 55); // Emas muda (#D3AF37) untuk garisan
+        doc.setDrawColor(211, 175, 55); // Emas muda (#D3AF37)
         doc.line(20, finalY + 5, 190, finalY + 5);
         doc.setFontSize(10);
         doc.setTextColor(100, 100, 100);
@@ -360,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
             doc.text('Sila tunjuk resit di kaunter untuk bukti pembayaran.', 105, finalY + 25, { align: 'center' });
         }
 
-        doc.save(`resit_meja_${currentTableNumber}.pdf`);
+        doc.save(`resit_${orderType.toLowerCase()}_${currentTableNumber}.pdf`);
     }
 
     downloadReceiptBtnCash.addEventListener('click', downloadReceipt);
@@ -398,6 +430,16 @@ document.addEventListener('DOMContentLoaded', () => {
         receiptContentOnline.innerHTML = '';
         paymentSection.style.display = 'none';
         document.getElementById('menu').style.display = 'block';
+
+        // Reset order type
+        dineInBtn.classList.add('active');
+        takeAwayBtn.classList.remove('active');
+        orderType = 'Dine In';
+        tableInput.style.display = 'block';
+        orderTypeDiv.style.display = 'none';
+        receiptNumSpan.textContent = '';
+        typeDisplay.textContent = '';
+        receiptNumber = null;
 
         // Reset error messages and styles
         document.querySelectorAll('.error-message').forEach(el => {
