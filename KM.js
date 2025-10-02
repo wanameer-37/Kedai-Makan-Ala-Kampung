@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const orderTypeDiv = document.getElementById('order-type');
     const typeDisplay = document.getElementById('type-display');
     const receiptNumSpan = document.getElementById('receipt-num');
-    const heroMenuBtn = document.getElementById('hero-menu-btn');
+    const menuLink = document.getElementById('menu-link');
 
     let cart = [];
     let currentTableNumber = '';
@@ -38,6 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let isCashPayment = false;
     let orderType = 'Dine In'; // Default to Dine In
     let receiptNumber = null;
+
+    // Handle "Lihat Menu & Pesan" click
+    menuLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('menu').style.display = 'block';
+        paymentSection.style.display = 'none';
+        cashPaymentForm.style.display = 'none';
+        onlinePaymentForm.style.display = 'none';
+        cashPaymentBtn.classList.remove('active');
+        onlinePaymentBtn.classList.remove('active');
+        window.scrollTo({ top: document.getElementById('menu').offsetTop, behavior: 'smooth' });
+    });
 
     // Toggle menu categories
     menuCategoryBtns.forEach(button => {
@@ -77,20 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         receiptNumber = Math.floor(Math.random() * 9000) + 1000; // Random 4-digit number
         typeDisplay.textContent = orderType;
         receiptNumSpan.textContent = receiptNumber;
-    });
-
-    // Hero menu button functionality
-    heroMenuBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('menu').style.display = 'block';
-        paymentSection.style.display = 'none';
-        cashPaymentForm.style.display = 'none';
-        onlinePaymentForm.style.display = 'none';
-        receiptContentCash.innerHTML = '';
-        receiptContentOnline.innerHTML = '';
-        cashPaymentBtn.classList.remove('active');
-        onlinePaymentBtn.classList.remove('active');
-        window.scrollTo({ top: document.getElementById('menu').offsetTop, behavior: 'smooth' });
     });
 
     // Function to update the cart display and total price
@@ -162,9 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Input validation for customer name
+    // Input validation for customer name and table number
     function validateInputs() {
         const nameRegex = /^[A-Za-z\s-]+$/;
+        const tableRegex = /^\d+$/;
         let isValid = true;
 
         // Validate customer name
@@ -182,6 +181,25 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             customerNameInput.classList.remove('error');
             customerNameError.style.display = 'none';
+        }
+
+        // Validate table number (only for Dine In)
+        if (orderType === 'Dine In') {
+            const tableNumberError = document.getElementById('table-number-error') || document.createElement('div');
+            tableNumberError.id = 'table-number-error';
+            tableNumberError.className = 'error-message';
+            tableNumberError.style.display = 'none';
+            tableNumberInput.parentElement.appendChild(tableNumberError);
+
+            if (!tableRegex.test(tableNumberInput.value.trim()) || tableNumberInput.value.trim() === '') {
+                tableNumberInput.classList.add('error');
+                tableNumberError.textContent = 'No. Meja hanya boleh mengandungi nombor positif.';
+                tableNumberError.style.display = 'block';
+                isValid = false;
+            } else {
+                tableNumberInput.classList.remove('error');
+                tableNumberError.style.display = 'none';
+            }
         }
 
         return isValid;
